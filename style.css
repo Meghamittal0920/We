@@ -1,0 +1,860 @@
+/* =========================================
+   GLOBAL RESETS & TYPOGRAPHY
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.page-1-body {
+    background-image: linear-gradient(rgba(5, 2, 10, 0.6), rgba(5, 2, 10, 0.6)), url('../images/main-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* This locks the image in place */
+    background-repeat: no-repeat;
+    background-color: #05020a;
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Make sure all sections are transparent so the body background shows through */
+.hero-section, 
+.timeline-section, 
+.projector-section, 
+.promise-section {
+    background: transparent !important; 
+    background-image: none !important;
+}
+
+/* =========================================
+   HERO SECTION & BACKGROUND
+   ========================================= */
+.hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================================
+   TOP NAVIGATION
+   ========================================= */
+.top-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #e6c280; /* Soft gold */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    font-size: 1rem;
+}
+
+.music-control {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* =========================================
+   GLASSMORPHISM CARD
+   ========================================= */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 60px 80px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(230, 194, 128, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    z-index: 5;
+    max-width: 800px;
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: #e6c280;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 6px;
+    color: #cccccc;
+    margin-bottom: 25px;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.gold-text {
+    color: #e6c280;
+    font-style: italic;
+}
+
+.separator {
+    font-size: 1.2rem;
+    color: #e6c280;
+    margin: 25px 0;
+}
+
+.description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   BUTTON
+   ========================================= */
+.glow-button {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid rgba(230, 194, 128, 0.6); /* Gold border */
+    border-radius: 50px;
+    background: transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(230, 194, 128, 0.1);
+}
+
+.glow-button:hover {
+    background: rgba(230, 194, 128, 0.1);
+    box-shadow: 0 0 30px rgba(230, 194, 128, 0.3);
+    border-color: #e6c280;
+}
+
+/* =========================================
+   SCROLL INDICATOR
+   ========================================= */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: #888888;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 5;
+}
+
+.mouse-icon {
+    width: 20px;
+    height: 30px;
+    border: 1.5px solid #888888;
+    border-radius: 12px;
+    position: relative;
+}
+
+.mouse-icon::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 4px;
+    background: #888888;
+    border-radius: 2px;
+    animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 16px; opacity: 0; }
+}
+
+/* =========================================
+   ANIMATED PETALS
+   ========================================= */
+.petals-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-radius: 15px 0 15px 0;
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(255, 236, 210, 0.5);
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(110vh) translateX(100px) rotate(720deg); opacity: 0; }
+}
+/* =========================================
+   PAGE 2: TIMELINE SECTION
+   ========================================= */
+.timeline-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 100px 5vw;
+    z-index: 2;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Sticky Header on the Left */
+.timeline-header {
+    width: 35%;
+    position: sticky;
+    top: 200px;
+    height: fit-content;
+}
+
+.timeline-header .title {
+    font-size: 3.5rem;
+}
+
+/* Timeline Track on the Right */
+.timeline-track-container {
+    width: 60%;
+    position: relative;
+    padding: 50px 0;
+}
+
+/* The Glowing Vertical Line */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(230, 194, 128, 0), rgba(230, 194, 128, 0.6) 10%, rgba(230, 194, 128, 0.6) 90%, rgba(230, 194, 128, 0));
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px rgba(230, 194, 128, 0.5);
+}
+
+/* Individual Timeline Items */
+.timeline-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.timeline-item.left {
+    justify-content: flex-start;
+}
+
+.timeline-item.right {
+    justify-content: flex-end;
+}
+
+/* Adjustments for layout offset */
+.mt-large {
+    margin-top: 120px;
+}
+
+/* Dates */
+.timeline-date {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: #e6c280;
+    background: #05020a; /* hides line behind text */
+    padding: 10px 0;
+    z-index: 2;
+}
+
+/* Glowing Dots */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #e6c280;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px rgba(230, 194, 128, 0.4);
+    z-index: 3;
+}
+
+.glow-dot {
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 25px 8px rgba(230, 194, 128, 0.6);
+}
+
+/* Timeline Cards */
+.timeline-card {
+    width: 42%; /* Leaves room for center line */
+    padding: 25px;
+    border-radius: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: left;
+}
+
+.timeline-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(230, 194, 128, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.chapter-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #e6c280;
+    font-size: 1.2rem;
+}
+
+.card-header i {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.timeline-card p {
+    font-size: 0.9rem;
+    color: #cccccc;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Endpoint */
+.timeline-endpoint {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Continue Button Wrapper */
+.continue-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+/* =========================================
+   PAGE 3: PROJECTOR SECTION
+   ========================================= */
+.projector-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 100px 5vw 50px 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+/* Large Moon */
+.moon-large {
+    position: absolute;
+    top: 60px;
+    right: 12%;
+    width: 140px;
+    height: 140px;
+    /* Creates a 3D sphere effect using a gradient instead of an image */
+    background: radial-gradient(circle at 30% 30%, #ffffff 0%, #faebd7 70%, #d1c4e9 100%);
+    border-radius: 50%;
+    /* Layers of glowing shadows to make it radiate light into the background */
+    box-shadow: 
+        0 0 30px 5px rgba(255, 255, 255, 0.6),
+        0 0 80px 20px rgba(230, 194, 128, 0.4),
+        0 0 120px 30px rgba(157, 78, 221, 0.2),
+        inset -15px -15px 25px rgba(0, 0, 0, 0.15);
+    z-index: 0;
+}
+
+.page3-header {
+    z-index: 2;
+    margin-bottom: 40px;
+}
+
+.chapter-tag {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: #e6c280;
+}
+
+/* Video Player Card */
+/* Glassmorphism Video Player Card */
+.video-player-card {
+    position: relative;
+    width: 80%;
+    max-width: 1050px; /* Slightly narrower to match a taller frame */
+    height: 600px; /* INCREASED HEIGHT so your full video fits! */
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 0 40px rgba(230, 194, 128, 0.15), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+/* The Real Video Styling */
+.real-video-bg {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    z-index: 0;
+    filter: brightness(0.5); 
+    border-radius: inherit; 
+}
+
+.video-content-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+}
+
+.gold-text-cursive {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 3rem;
+    color: #e6c280;
+    text-shadow: 0 0 15px rgba(230, 194, 128, 0.5);
+    margin-bottom: 5px;
+}
+
+/* Custom Video Controls */
+.video-controls {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 40px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #ffffff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+}
+
+.video-controls i {
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.video-controls i:hover {
+    color: #e6c280;
+}
+
+.progress-bar-wrapper {
+    flex-grow: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 15px;
+}
+
+.progress-bar-filled {
+    width: 30%;
+    height: 100%;
+    background: #e6c280;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(230, 194, 128, 0.8);
+}
+
+.progress-dot {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Projector Area & Light Beam */
+.projector-area {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.play-btn {
+    position: relative;
+    z-index: 5;
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    background: rgba(25, 15, 35, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.play-btn i {
+    color: #e6c280;
+    margin-right: 10px;
+}
+
+.light-beam {
+    width: 600px;
+    height: 250px;
+    margin-top: -30px;
+    background: linear-gradient(to bottom, rgba(230, 194, 128, 0.15) 0%, rgba(230, 194, 128, 0.0) 100%);
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+    z-index: 1;
+    animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+    75% { opacity: 0.95; }
+}
+
+/* Vintage Props Styling */
+.vintage-scene {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 40px;
+    margin-top: -50px;
+    z-index: 2;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05); /* Simulating the table edge */
+    padding-bottom: 20px;
+    width: 80%;
+}
+
+.projector-placeholder {
+    width: 200px;
+    height: 150px;
+    background: rgba(255,255,255,0.02);
+    border: 1px dashed rgba(230, 194, 128, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.projector-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.vintage-prop {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #e6c280;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid rgba(230, 194, 128, 0.3);
+    background: rgba(10, 5, 15, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+.chalkboard {
+    transform: rotate(-3deg);
+}
+
+.treasure-chest-label {
+    transform: rotate(2deg);
+}
+
+.prop-heart {
+    font-style: normal;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-player-card { width: 95%; height: 500px; }
+    .gold-text-cursive { font-size: 2rem; }
+    .vintage-scene { flex-direction: column; align-items: center; gap: 20px; }
+    .light-beam { width: 100%; }
+}
+/* =========================================
+   PAGE 4: PROMISE & GIFTS SECTION (FIXED)
+   ========================================= */
+.promise-section {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 120px 5vw 80px 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    gap: 60px; /* This forces a strict space between the top card, the center images, and the bottom card */
+}
+
+/* Top Promise Card */
+.promise-card {
+    padding: 40px 60px;
+    max-width: 650px;
+    border-radius: 20px;
+    margin-bottom: 0 !important; 
+}
+
+.promise-card .title {
+    font-size: 4.5rem;
+    line-height: 1.2;
+}
+
+.separator-star {
+    color: #e6c280;
+    font-size: 1.2rem;
+}
+
+.infinity-divider {
+    color: #e6c280;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.infinity-divider::before, .infinity-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 1px;
+    background: rgba(230, 194, 128, 0.5);
+}
+
+.infinity-divider::before { right: 120%; }
+.infinity-divider::after { left: 120%; }
+
+/* Gift Scene (Ring & Cake) */
+.gift-scene {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px; /* Forces the layout to stay open even if images are missing */
+    width: 100%;
+}
+
+/* Floating Ring */
+.floating-ring-container {
+    position: relative;
+    z-index: 5;
+    animation: floatRing 4s ease-in-out infinite;
+    min-height: 200px; /* Safety height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.promise-ring-img {
+    width: 100px;
+    min-height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 30px rgba(230, 194, 128, 0.8));
+    position: relative;
+    z-index: 6;
+}
+
+.ring-glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid rgba(230, 194, 128, 0.4);
+    box-shadow: 0 0 30px rgba(230, 194, 128, 0.4);
+    animation: rotateGlow 8s linear infinite;
+    z-index: 5;
+}
+
+.secondary-glow {
+    width: 280px;
+    height: 80px;
+    border: 2px dotted rgba(230, 194, 128, 0.6);
+    animation: rotateGlowReverse 12s linear infinite;
+}
+
+.sparkles {
+    position: absolute;
+    top: 0;
+    right: -20px;
+    font-size: 1.5rem;
+    color: #e6c280;
+    animation: twinkle 2s infinite alternate;
+    z-index: 7;
+}
+
+/* Birthday Cake */
+.cake-container {
+    position: relative;
+    z-index: 4;
+    margin-top: -30px; /* Slight overlap with ring */
+    min-height: 300px; /* Safety height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.birthday-cake-img {
+    width: 450px;
+    min-height: 250px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 20px rgba(0,0,0,0.5));
+}
+
+/* Styling for the text exactly below the cake */
+.cake-greeting {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(230, 194, 128, 0.4);
+    letter-spacing: 1px;
+}
+
+/* Ensure the cake container stacks items properly */
+.cake-container {
+    position: relative;
+    z-index: 4;
+    margin-top: -30px; 
+    display: flex;
+    flex-direction: column; /* Stacks image and text vertically */
+    align-items: center;
+}
+.cake-heart {
+    font-size: 1.2rem;
+    color: #4a2f1d;
+}
+
+/* Bottom Gift Card */
+.gift-description-card {
+    max-width: 500px;
+    padding: 20px 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(230, 194, 128, 0.3);
+    background: rgba(25, 15, 35, 0.4);
+    margin-top: 0 !important;
+}
+
+/* Animations */
+@keyframes floatRing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes rotateGlow {
+    0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) rotate(180deg); opacity: 1; }
+    100% { transform: translate(-50%, -50%) rotate(360deg); opacity: 0.6; }
+}
+
+@keyframes rotateGlowReverse {
+    0% { transform: translate(-50%, -50%) rotate(360deg); opacity: 0.4; }
+    50% { transform: translate(-50%, -50%) rotate(180deg); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0.4; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .promise-card .title { font-size: 3rem; }
+    .birthday-cake-img { width: 320px; }
+    .promise-ring-img { width: 100px; }
+    .cake-text { font-size: 1.4rem; top: 62%; }
+    .ring-glow-effect { width: 250px; height: 90px; }
+}
